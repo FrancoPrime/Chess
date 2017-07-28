@@ -1,0 +1,58 @@
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\Chess.exe
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\Chess.pdb
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\sfmlnet-audio-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\sfmlnet-graphics-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\sfmlnet-system-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\sfmlnet-window-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\obj\x86\Debug\Chess.exe
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\obj\x86\Debug\Chess.pdb
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\csfml-audio-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\csfml-graphics-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\csfml-network-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\csfml-system-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\csfml-window-2.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\libsndfile-1.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\openal32.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\OpenTK.Compatibility.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\OpenTK.dll
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\resources\black.png
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\resources\gray.jpg
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\resources\tileset.png
+C:\Users\Franco\AppData\Local\Temporary Projects\Chess\bin\Debug\resources\white.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\obj\x86\Debug\Chess.exe
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\obj\x86\Debug\Chess.pdb
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\csfml-audio-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\csfml-graphics-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\csfml-network-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\csfml-system-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\csfml-window-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\libsndfile-1.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\openal32.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\OpenTK.Compatibility.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\OpenTK.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\black.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\gray.jpg
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\tileset.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\white.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\Chess.exe
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\Chess.pdb
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\sfmlnet-audio-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\sfmlnet-graphics-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\sfmlnet-system-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\sfmlnet-window-2.dll
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\obj\x86\Debug\Chess.csprojResolveAssemblyReference.cache
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\bb.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\bw.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\kb.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\kw.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\nb.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\nw.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\pb.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\pw.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\qb.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\qw.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\rb.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\rw.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\dot.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\selected.png
+C:\Users\Franco\documents\visual studio 2010\Projects\Chess\Chess\bin\Debug\resources\last.png
