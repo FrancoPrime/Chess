@@ -34,7 +34,7 @@ namespace Chess
         static Texture las = new Texture("resources/last.png");
         static Texture dot = new Texture("resources/dot.png");
         //Create Pieces
-        static Piece[][] pieces = new Piece[2][] { new Piece[] { new Piece(1, 0, 0, 1), new Piece(1, 0, 1, 1), new Piece(1, 0, 2, 1), new Piece(1, 0, 3, 1),
+        public static Piece[][] pieces = new Piece[2][] { new Piece[] { new Piece(1, 0, 0, 1), new Piece(1, 0, 1, 1), new Piece(1, 0, 2, 1), new Piece(1, 0, 3, 1),
             new Piece(1,0,4,1), new Piece(1,0,5,1), new Piece(1,0,6,1), new Piece(1,0,7,1), new Piece(2,0,0,0), new Piece(2,0,7,0),
             new Piece(3,0,1,0), new Piece(3,0,6,0), new Piece(4,0,2,0), new Piece(4,0,5,0), new Piece(5,0,3,0), new Piece(6,0,4,0)}, new Piece[] { new Piece(1, 1, 0, 6), new Piece(1, 1, 1, 6), new Piece(1, 1, 2, 6), new Piece(1, 1, 3, 6),
             new Piece(1,1,4,6), new Piece(1,1,5,6), new Piece(1,1,6,6), new Piece(1,1,7,6), new Piece(2,1,0,7), new Piece(2,1,7,7),
@@ -162,7 +162,7 @@ namespace Chess
                         {
                             if (turn == 0)
                             {
-                                if (pieces[0][selected[2]].CanMove(turn, x, y))
+                                if (pieces[0][selected[2]].CanMove(x, y) && pieces[0][selected[2]].IfMoveNoCheck(x, y))
                                 {
                                     Sprite doc = new Sprite(dot);
                                     doc.Position = new Vector2f(x * 64, y * 64);
@@ -171,7 +171,7 @@ namespace Chess
                             }
                             else
                             {
-                                if (pieces[1][selected[2]].CanMove(turn, x, y))
+                                if (pieces[1][selected[2]].CanMove(x, y) && pieces[1][selected[2]].IfMoveNoCheck(x, y))
                                 {
                                     Sprite doc = new Sprite(dot);
                                     doc.Position = new Vector2f(x * 64, y * 64);
@@ -204,64 +204,70 @@ namespace Chess
                 {
                     if (turn == 1)
                     {
-                        if (pieces[1][selected[2]].CanMove(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
+                        if (pieces[1][selected[2]].CanMove(Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
                         {
-                            if (Enemy(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
+                            if (pieces[1][selected[2]].IfMoveNoCheck(Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
                             {
-                                DelEnemy(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64);
-                            }
-                            if (lastmove[0] == Mouse.GetPosition(window).X / 64 && lastmove[1] == (Mouse.GetPosition(window).Y / 64) - 1)
-                            {
-                                if (lastmove[2] == 1)
+                                if (Enemy(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
                                 {
-                                    DelEnemy(turn, Mouse.GetPosition(window).X / 64, (Mouse.GetPosition(window).Y / 64) + 1);
+                                    DelEnemy(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64);
                                 }
-                            }
-                            if (pieces[1][selected[2]].type == 6)
-                            {
-                                if (Mouse.GetPosition(window).X / 64 == pieces[1][selected[2]].X + 2)
+                                if (lastmove[0] == Mouse.GetPosition(window).X / 64 && lastmove[1] == (Mouse.GetPosition(window).Y / 64) - 1)
                                 {
-                                    pieces[1][9].Move(pieces[1][selected[2]].X + 1, pieces[1][selected[2]].Y); //id 9 = right rook
+                                    if (lastmove[2] == 1)
+                                    {
+                                        DelEnemy(turn, Mouse.GetPosition(window).X / 64, (Mouse.GetPosition(window).Y / 64) + 1);
+                                    }
                                 }
-                                if (Mouse.GetPosition(window).X / 64 == pieces[1][selected[2]].X - 2)
+                                if (pieces[1][selected[2]].type == 6)
                                 {
-                                    pieces[1][8].Move(pieces[1][selected[2]].X - 1, pieces[1][selected[2]].Y); //id 8 = left rook
+                                    if (Mouse.GetPosition(window).X / 64 == pieces[1][selected[2]].X + 2)
+                                    {
+                                        pieces[1][9].Move(pieces[1][selected[2]].X + 1, pieces[1][selected[2]].Y); //id 9 = right rook
+                                    }
+                                    if (Mouse.GetPosition(window).X / 64 == pieces[1][selected[2]].X - 2)
+                                    {
+                                        pieces[1][8].Move(pieces[1][selected[2]].X - 1, pieces[1][selected[2]].Y); //id 8 = left rook
+                                    }
                                 }
+                                pieces[1][selected[2]].Move(Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64);
+                                Check(turn);
+                                turn = 0;
                             }
-                            pieces[1][selected[2]].Move(Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64);
-                            Check(turn);
-                            turn = 0;
                         }
                     }
                     else
                     {
-                        if (pieces[0][selected[2]].CanMove(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
+                        if (pieces[0][selected[2]].CanMove(Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
                         {
-                            if (Enemy(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
+                            if (pieces[0][selected[2]].IfMoveNoCheck(Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
                             {
-                                DelEnemy(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64);
-                            }
-                            if (lastmove[0] == Mouse.GetPosition(window).X / 64 && lastmove[1] == (Mouse.GetPosition(window).Y / 64) + 1)
-                            {
-                                if (lastmove[2] == 1)
+                                if (Enemy(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64))
                                 {
-                                    DelEnemy(turn, Mouse.GetPosition(window).X / 64, (Mouse.GetPosition(window).Y / 64) - 1);
+                                    DelEnemy(turn, Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64);
                                 }
-                            }
-                            if (pieces[0][selected[2]].type == 6)
-                            {
-                                if (Mouse.GetPosition(window).X / 64 == pieces[0][selected[2]].X + 2)
+                                if (lastmove[0] == Mouse.GetPosition(window).X / 64 && lastmove[1] == (Mouse.GetPosition(window).Y / 64) + 1)
                                 {
-                                    pieces[0][9].Move(pieces[0][selected[2]].X + 1, pieces[0][selected[2]].Y); //id 9 = right rook
+                                    if (lastmove[2] == 1)
+                                    {
+                                        DelEnemy(turn, Mouse.GetPosition(window).X / 64, (Mouse.GetPosition(window).Y / 64) - 1);
+                                    }
                                 }
-                                if (Mouse.GetPosition(window).X / 64 == pieces[0][selected[2]].X - 2)
+                                if (pieces[0][selected[2]].type == 6)
                                 {
-                                    pieces[0][8].Move(pieces[0][selected[2]].X - 1, pieces[0][selected[2]].Y); //id 8 = left rook
+                                    if (Mouse.GetPosition(window).X / 64 == pieces[0][selected[2]].X + 2)
+                                    {
+                                        pieces[0][9].Move(pieces[0][selected[2]].X + 1, pieces[0][selected[2]].Y); //id 9 = right rook
+                                    }
+                                    if (Mouse.GetPosition(window).X / 64 == pieces[0][selected[2]].X - 2)
+                                    {
+                                        pieces[0][8].Move(pieces[0][selected[2]].X - 1, pieces[0][selected[2]].Y); //id 8 = left rook
+                                    }
                                 }
+                                pieces[0][selected[2]].Move(Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64);
+                                Check(turn);
+                                turn = 1;
                             }
-                            pieces[0][selected[2]].Move(Mouse.GetPosition(window).X / 64, Mouse.GetPosition(window).Y / 64);
-                            Check(turn);
-                            turn = 1;
                         }
                     }
                     selected[0] = -1;
@@ -370,11 +376,13 @@ namespace Chess
 
         public static void Check(int player)
         {
+            int MovePosible = 0;
+            check = -1;
             for (int i = 0; i < pieces[player].Length; i++)
             {
                 if (player == 1)
                 {
-                        if (pieces[player][i].CanMove(player, pieces[0][15].X, pieces[0][15].Y))
+                        if (pieces[player][i].CanMove(pieces[0][15].X, pieces[0][15].Y))
                         {
                             check = 0;
                             Console.WriteLine("Checked");
@@ -382,12 +390,46 @@ namespace Chess
                 }
                 else
                 {
-                    if (pieces[player][i].CanMove(player, pieces[1][15].X, pieces[1][15].Y))
+                        if (pieces[player][i].CanMove(pieces[1][15].X, pieces[1][15].Y))
                         {
                             check = 1;
                             Console.WriteLine("Checked");
                         }
                 }
+            }
+            if (check > -1)
+            {
+                for (int i = 0; i < pieces[check].Length; i++)
+                {
+                    for (int x = 0; x < 8; x++)
+                    {
+                        for (int y = 0; y < 8; y++)
+                        {
+                            if (pieces[check][i].CanMove(x, y) && pieces[check][i].IfMoveNoCheck(x, y))
+                            {
+                                MovePosible++;
+                            }
+                        }
+                    }
+                }
+                if (MovePosible == 0)
+                {
+                    FinGame(player);
+                }
+            }
+        }
+
+        public static void FinGame(int winner)
+        {
+            if(winner == 0)
+            {
+                Console.WriteLine("Winner: Black");
+                Console.WriteLine("Loser: White");
+            }
+            else
+            {
+                Console.WriteLine("Winner: White");
+                Console.WriteLine("Loser: Black");
             }
         }
     }

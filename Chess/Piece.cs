@@ -57,7 +57,7 @@ namespace Chess
             this.Y = 9999;
         }
 
-        public bool CanMove(int player, int X, int Y)
+        public bool CanMove(int X, int Y)
         {
             switch (this.type)
             {
@@ -535,5 +535,52 @@ namespace Chess
             }
             return false;
         }
+
+        public bool IfMoveNoCheck(int X, int Y)
+        {
+            int tempx = this.X, tempy = this.Y;//Variables temporales
+            this.X = X; // Temporalmente pongo a la pieza en una posición hipotética
+            this.Y = Y;
+            if (player == 1) //Empezamos con el jugador blanco
+            {
+                for (int a = 0; a < Program.pieces[0].Length; a++) //Para cada pieza negra pieces[0][0-15] = negras
+                {
+                        if (Program.pieces[0][a].CanMove(Program.pieces[1][15].X, Program.pieces[1][15].Y))//Checkeamos que pueda matar al rey
+                        {
+                            if (this.X == Program.pieces[0][a].X && this.Y == Program.pieces[0][a].Y)
+                            {
+                                this.X = tempx;
+                                this.Y = tempy;
+                                return true;
+                            }
+                            this.X = tempx;
+                            this.Y = tempy;
+                            return false;//Retornamos todo a su lugar y sabemos que no se puede hacer este movimiento
+                        }
+                }
+            }
+            else
+            {
+                for (int a = 0; a < Program.pieces[1].Length; a++)
+                {
+                        if (Program.pieces[1][a].CanMove(Program.pieces[0][15].X, Program.pieces[0][15].Y))
+                        {
+                            if (this.X == Program.pieces[1][a].X && this.Y == Program.pieces[1][a].Y)
+                            {
+                                this.X = tempx;
+                                this.Y = tempy;
+                                return true;
+                            }
+                            this.X = tempx;
+                            this.Y = tempy;
+                            return false;
+                        }
+                }
+            }
+            this.X = tempx;
+            this.Y = tempy;
+            return true;
         }
+        }
+
 }
